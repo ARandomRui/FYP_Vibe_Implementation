@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Android TTS Extractor</string>
+    <string name="hint_url">Enter Web URL</string>
+    <string name="btn_web">Extract Web</string>
+    <string name="btn_pdf">Select PDF</string>
+    <string name="btn_play">Play</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_stop">Stop</string>
+    <string name="status_ready">Ready to extract.</string>
+    <string name="status_extracting">Extracting text...</string>
+    <string name="status_reading">Reading...</string>
+    <string name="error_extraction">Error extracting text.</string>
+</resources>
