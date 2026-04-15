@@ -53,3 +53,17 @@ CalcConvert is a modern, client-side web application built with React and Vite. 
 2. In the project root, download dependencies: `npm install`
 3. Spin up the development environment: `npm run dev`
 4. The terminal will log a `localhost` URL for you to open in your browser.
+
+## How to Run Automated Tests
+This project uses **Vitest** alongside `@testing-library/react` to enforce comprehensive test coverage across both dynamic UI interactions and core mathematical logic.
+
+- To run the entire test suite once (standard CI/CD validation):
+  ```bash
+  npm run test
+  ```
+- To run the test suite in interactive watch mode (automatically re-runs tests whenever you save a file):
+  ```bash
+  npm run test:watch
+  ```
+
+For explicit documentation mapping what each test evaluates, please read the `testing_phase/test_cases.md` directory located in the project root.

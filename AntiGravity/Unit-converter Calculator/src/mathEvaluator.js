@@ -24,6 +24,10 @@ export function evaluateExpression(expr, ansValue) {
         // Why: Prevents precision bloat string like 0.30000000000000004
         return parseFloat(result.toFixed(10)); 
     } catch(err) {
+        // Why: prevent Math Error from being completely masked by the catch block
+        if (err.message === "Math Error") {
+            throw err;
+        }
         throw new Error("Syntax Error");
     }
 }
