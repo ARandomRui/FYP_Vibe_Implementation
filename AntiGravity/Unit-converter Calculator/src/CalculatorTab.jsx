@@ -24,6 +24,32 @@ export default function CalculatorTab() {
         }
     }, [historyList]);
 
+    // Why: Bind physical keyboard actions to the calculator logic so users don't encounter native DOM anomalies
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            // Ignore keystrokes if the user is typing inside the history input box
+            if (editingIndex !== null) return;
+            
+            if (e.key === "Backspace") {
+                handleBtn("DEL");
+            } else if (e.key === "Escape") {
+                handleBtn("C");
+            } else if (e.key === "Enter") {
+                e.preventDefault(); // stop form submits if any
+                handleBtn("=");
+            } else {
+                const mappedKey = e.key.toUpperCase();
+                const validKeys = ["0","1","2","3","4","5","6","7","8","9",".","+","-","*","/","(",")"];
+                if (validKeys.includes(mappedKey)) {
+                    handleBtn(mappedKey);
+                }
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    });
+
     /**
      * Cascade re-evaluates all history entries from a given index onward.
      * Why is this implemented: Editing one historical expression changes the ANS fed into every
@@ -100,7 +126,13 @@ export default function CalculatorTab() {
                 setCurrentInput("");
                 setNewSequence(false);
             } else {
-                setCurrentInput(prev => prev.slice(0, -1));
+                setCurrentInput(prev => {
+                    // Why: Treat ANS as a single mathematical unit. Delete it entirely instead of leaving 'AN'
+                    if (prev.endsWith("ANS")) {
+                        return prev.slice(0, -3);
+                    }
+                    return prev.slice(0, -1);
+                });
             }
             return;
         }
