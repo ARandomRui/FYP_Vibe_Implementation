@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Tasks</title>
+    <meta name="description" content="A premium, simple to-do list application.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="app-container">
+        <header class="app-header">
+            <h1>Tasks</h1>
+            <p class="subtitle">Stay organized, beautifully.</p>
+        </header>
+        
+        <form id="task-form" class="task-form" aria-label="Add a new task">
+            <input type="text" id="task-input" class="task-input" placeholder="What needs to be done?" autocomplete="off">
+            <button type="submit" class="task-submit" aria-label="Add Task">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </form>
+
+        <div id="error-container" class="error-container" aria-live="polite"></div>
+
+        <ul id="task-list" class="task-list" aria-label="List of tasks">
+            <!-- Tasks will be injected here by JS -->
+        </ul>
+    </main>
+
+    <!-- ES Module Entry Point -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

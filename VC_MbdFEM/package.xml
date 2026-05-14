@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<package format="1" >
+  <name>VC_MbdFEM</name>
+  <description>FreeCAD MbDFEM integration via PyBullet</description>
+  <version>1.0.0</version>
+  <date>2026-04-23</date>
+  <maintainer email="todo@todo.com">FYP</maintainer>
+  <license>LGPL</license>
+  <url type="repository">None</url>
+  <depend>FreeCAD</depend>
+  <content>
+    <workbench class="MbdFemWorkbench" subdirectory="./" />
+  </content>
+</package>
