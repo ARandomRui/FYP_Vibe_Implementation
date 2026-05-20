@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Showcase of projects completed by Antigravity and Codex">
+    <title>AI Project Showcase | Antigravity & Codex</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header glass-effect">
+            <div class="logo">
+                <h1>AI Showcase<span>.</span></h1>
+            </div>
+            <p class="subtitle">Exploring the capabilities of advanced agentic coding</p>
+        </header>
+
+        <!-- Main Content (Dashboard) -->
+        <main class="dashboard" id="dashboard">
+            <!-- Row 1: Antigravity -->
+            <section class="agent-section antigravity-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-rocket"></i> Antigravity Projects</h2>
+                    <div class="accent-line antigravity-line"></div>
+                </div>
+                <div class="project-grid" id="antigravity-grid">
+                    <!-- Cards will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Row 2: Codex -->
+            <section class="agent-section codex-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-code"></i> Codex Projects</h2>
+                    <div class="accent-line codex-line"></div>
+                </div>
+                <div class="project-grid" id="codex-grid">
+                    <!-- Cards will be dynamically inserted here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Detail Modal View -->
+        <div class="detail-overlay hidden" id="detail-overlay">
+            <div class="detail-modal glass-effect">
+                <button class="close-btn" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+                
+                <header class="detail-header">
+                    <span class="agent-badge" id="detail-agent-badge">Agent</span>
+                    <h2 id="detail-title">Project Title</h2>
+                    <p id="detail-desc" class="detail-desc">Project Description</p>
+                </header>
+
+                <div class="detail-content">
+                    <nav class="detail-nav">
+                        <button class="nav-tab active" data-tab="link-tab"><i class="fa-solid fa-link"></i> Application</button>
+                        <button class="nav-tab" data-tab="plan-tab"><i class="fa-solid fa-list-check"></i> Plan</button>
+                        <button class="nav-tab" data-tab="test-tab"><i class="fa-solid fa-vial"></i> Test Case</button>
+                        <button class="nav-tab" data-tab="summary-tab"><i class="fa-solid fa-chart-pie"></i> Summary</button>
+                    </nav>
+
+                    <div class="tab-content-container">
+                        <!-- Application Link Tab -->
+                        <div class="tab-pane active" id="link-tab">
+                            <div class="link-card">
+                                <h3>Ready to Explore?</h3>
+                                <p>Access the live application or download the relevant resources below.</p>
+                                <a href="#" id="detail-link" class="action-btn" target="_blank">
+                                    Launch Application <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Markdown Content Tabs -->
+                        <div class="tab-pane" id="plan-tab">
+                            <div class="markdown-body" id="plan-content"></div>
+                        </div>
+                        
+                        <div class="tab-pane" id="test-tab">
+                            <div class="markdown-body" id="test-content"></div>
+                        </div>
+                        
+                        <div class="tab-pane" id="summary-tab">
+                            <div class="markdown-body" id="summary-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Vibe Coding FYP</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.3/purify.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
