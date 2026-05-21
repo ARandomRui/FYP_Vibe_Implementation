@@ -90,15 +90,15 @@ function init() {
 // Render Project Cards
 function renderProjects() {
     projectsData.forEach((project, index) => {
-        const cardHTML = \`
-            <div class="project-card" data-agent="\${project.agent}" onclick="openProjectDetails('\${project.id}')" style="animation-delay: \${index * 0.1}s">
+        const cardHTML = `
+            <div class="project-card" data-agent="${project.agent}" onclick="openProjectDetails('${project.id}')" style="animation-delay: ${index * 0.1}s">
                 <div class="card-icon">
-                    <i class="\${project.agent === 'antigravity' ? 'fa-solid fa-rocket' : 'fa-solid fa-code'}"></i>
+                    <i class="${project.agent === 'antigravity' ? 'fa-solid fa-rocket' : 'fa-solid fa-code'}"></i>
                 </div>
-                <h3>\${project.title}</h3>
-                <p>\${project.description}</p>
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
             </div>
-        \`;
+        `;
         
         if (project.agent === 'antigravity') {
             antigravityGrid.insertAdjacentHTML('beforeend', cardHTML);
@@ -115,7 +115,7 @@ window.openProjectDetails = function(projectId) {
 
     // Set Header Data
     detailAgentBadge.textContent = project.agent;
-    detailAgentBadge.className = \`agent-badge \${project.agent}\`;
+    detailAgentBadge.className = `agent-badge ${project.agent}`;
     detailTitle.textContent = project.title;
     detailDesc.textContent = project.description;
     
