@@ -5,7 +5,7 @@ const projectsData = [
         agent: 'antigravity',
         title: 'To-Do List Application',
         description: 'A lightweight, clean-interface web-based to-do list application with LocalStorage persistence.',
-        link: 'https://[your-github-username].github.io/[your-repo-name]/', // Placeholder for GitHub Pages link
+        link: 'https://arandomrui.github.io/FYP_Vibe_Implementation/AntiGravity/To%20do%20list%20application/index.htm/', 
         implementationPlan: '../AntiGravity/To do list application/implementation_plan/20260513_223439_plan.md',
         testCase: '../AntiGravity/To do list application/test.md',
         summary: '../AntiGravity/To do list application/summary.md'
