@@ -69,6 +69,7 @@
                         <button class="nav-tab" data-tab="plan-tab"><i class="fa-solid fa-list-check"></i> Plan</button>
                         <button class="nav-tab" data-tab="test-tab"><i class="fa-solid fa-vial"></i> Test Case</button>
                         <button class="nav-tab" data-tab="summary-tab"><i class="fa-solid fa-chart-pie"></i> Summary</button>
+                        <button class="nav-tab" data-tab="chat-tab"><i class="fa-solid fa-comments"></i> Chat</button>
                     </nav>
 
                     <div class="tab-content-container">
@@ -94,6 +95,19 @@
                         
                         <div class="tab-pane" id="summary-tab">
                             <div class="markdown-body" id="summary-content"></div>
+                        </div>
+
+                        <!-- Chat Tab -->
+                        <div class="tab-pane" id="chat-tab">
+                            <div class="chat-wrapper" id="chat-wrapper">
+                                <div class="chat-timeline" id="chat-timeline"></div>
+                                <div class="chat-footer">
+                                    <div class="chat-input-mock">
+                                        <i class="fa-solid fa-lock"></i>
+                                        <span>Archived chat conversation (Read-only)</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

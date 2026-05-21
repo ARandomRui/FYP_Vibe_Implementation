@@ -5,10 +5,11 @@ const projectsData = [
         agent: 'antigravity',
         title: 'To-Do List Application',
         description: 'A lightweight, clean-interface web-based to-do list application with LocalStorage persistence.',
-        link: 'https://arandomrui.github.io/FYP_Vibe_Implementation/AntiGravity/To%20do%20list%20application/index.htm/', 
-        implementationPlan: '../AntiGravity/To do list application/implementation_plan/20260513_223439_plan.md',
-        testCase: '../AntiGravity/To do list application/test.md',
-        summary: '../AntiGravity/To do list application/summary.md'
+        link: 'https://arandomrui.github.io/FYP_Vibe_Implementation/AntiGravity/To-do_List_Application/index.html',
+        implementationPlan: '../AntiGravity/To-do_List_Application/implementation_plan/20260513_223439_plan.md',
+        testCase: '../AntiGravity/To-do_List_Application/test.md',
+        summary: '../AntiGravity/To-do_List_Application/developer_notes.md',
+        chat: '../AntiGravity/To-do_List_Application/chat/VC_chat.md'
     },
     {
         id: 'codex-spaceship',
@@ -49,18 +50,7 @@ Initiate a machine learning project to predict the "Transported" target variable
 - **Action**: Execute \`model.fit()\`.
 - **Expected**: Model trains successfully and returns a training score > 0.75.
         `,
-        summary: `
-# Summary and Opinions
-
-## Model Selection
-Random Forest provided a strong baseline, but XGBoost might yield better accuracy for this tabular dataset.
-
-## Data Quality
-The dataset required significant imputation, particularly for cabin and age features.
-
-## Next Steps
-Experiment with deep learning models and hyperparameter tuning.
-        `
+        summary: '../Codex/Spaceship_Titanic_Predictor/developer_notes.md'
     }
 ];
 
@@ -80,6 +70,7 @@ const detailLink = document.getElementById('detail-link');
 const planContent = document.getElementById('plan-content');
 const testContent = document.getElementById('test-content');
 const summaryContent = document.getElementById('summary-content');
+const chatTimeline = document.getElementById('chat-timeline');
 
 // Initialize Application
 function init() {
@@ -127,9 +118,12 @@ window.openProjectDetails = function(projectId) {
         element.innerHTML = '<p>Loading...</p>';
         try {
             let text = content;
-            // If it ends with .md, assume it is a URL
             if (content.trim().endsWith('.md')) {
                 const response = await fetch(content);
+                if (response.status === 404) {
+                    element.innerHTML = '<p class="empty-state-text">Summary notes are empty.</p>';
+                    return;
+                }
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 text = await response.text();
             }
@@ -140,17 +134,237 @@ window.openProjectDetails = function(projectId) {
         }
     }
 
-    // Load content dynamically
+    // Load standard markdown contents
     loadMarkdownContent(project.implementationPlan, planContent);
     loadMarkdownContent(project.testCase, testContent);
     loadMarkdownContent(project.summary, summaryContent);
 
-    // Reset Tabs to first one
+    // Show/Hide Chat Tab depending on if it has a conversation transcript
+    const chatTabBtn = document.querySelector('[data-tab="chat-tab"]');
+    if (project.chat) {
+        chatTabBtn.style.display = 'block';
+        loadChatContent(project.chat, project.agent);
+    } else {
+        chatTabBtn.style.display = 'none';
+    }
+
+    // Reset Tabs to first one (Application link)
     switchTab('link-tab');
 
     // Show Modal
     modalOverlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+};
+
+// Async function to load and parse Chat Markdown content
+async function loadChatContent(chatPath, agentName) {
+    chatTimeline.innerHTML = '<p>Loading conversation...</p>';
+    try {
+        const response = await fetch(chatPath);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const text = await response.text();
+        const timeline = parseChatMarkdown(text, agentName);
+        renderChatTimeline(timeline, agentName);
+    } catch (e) {
+        console.error("Error loading chat:", e);
+        chatTimeline.innerHTML = "<p>Error loading chat conversation.</p>";
+    }
+}
+
+// Custom Markdown Chat Parser for VC_chat.md format
+function parseChatMarkdown(text, agentName) {
+    const timeline = [];
+    const headerRegex = /###\s+(User Input|Planner Response)/g;
+    let match;
+    const segments = [];
+    
+    // Collect segment positions
+    while ((match = headerRegex.exec(text)) !== null) {
+        segments.push({
+            type: match[1],
+            index: match.index,
+            length: match[0].length
+        });
+    }
+    
+    // Parse individual segments between headers
+    for (let i = 0; i < segments.length; i++) {
+        const current = segments[i];
+        const next = segments[i + 1];
+        const start = current.index + current.length;
+        const end = next ? next.index : text.length;
+        
+        let content = text.slice(start, end).trim();
+        
+        if (current.type === 'User Input') {
+            parseUserContent(content, agentName, timeline);
+        } else if (current.type === 'Planner Response') {
+            parsePlannerContent(content, agentName, timeline);
+        }
+    }
+    
+    return timeline;
+}
+
+// Parse User input block and separate intermediate agent action logs
+function parseUserContent(content, agentName, timeline) {
+    const lines = content.split('\n');
+    let currentBubbleText = [];
+    
+    for (let line of lines) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('*') && trimmed.endsWith('*')) {
+            const textContent = currentBubbleText.join('\n').trim();
+            if (textContent) {
+                timeline.push({
+                    sender: 'user',
+                    text: textContent
+                });
+            }
+            currentBubbleText = [];
+            
+            timeline.push({
+                sender: 'agent-action',
+                agent: agentName,
+                text: trimmed.slice(1, -1).trim()
+            });
+        } else {
+            currentBubbleText.push(line);
+        }
+    }
+    
+    const textContent = currentBubbleText.join('\n').trim();
+    if (textContent) {
+        timeline.push({
+            sender: 'user',
+            text: textContent
+        });
+    }
+}
+
+// Parse Agent Response block (includes Deep Think thought-process extraction)
+function parsePlannerContent(content, agentName, timeline) {
+    const thoughtHeaderIdx = content.indexOf('### Thought Process');
+    let thoughtText = '';
+    let responseText = content;
+    
+    if (thoughtHeaderIdx !== -1) {
+        const dividerIdx = content.indexOf('---', thoughtHeaderIdx);
+        const thoughtStart = thoughtHeaderIdx + '### Thought Process'.length;
+        
+        if (dividerIdx !== -1) {
+            thoughtText = content.slice(thoughtStart, dividerIdx).trim();
+            responseText = content.slice(dividerIdx + 3).trim();
+        } else {
+            thoughtText = content.slice(thoughtStart).trim();
+            responseText = '';
+        }
+    }
+    
+    const lines = responseText.split('\n');
+    let currentBubbleText = [];
+    
+    for (let line of lines) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('*') && trimmed.endsWith('*')) {
+            const textContent = currentBubbleText.join('\n').trim();
+            if (textContent || thoughtText) {
+                timeline.push({
+                    sender: 'agent',
+                    agent: agentName,
+                    thought: thoughtText,
+                    text: textContent
+                });
+                thoughtText = ''; // Clear thought so it only links to first bubble
+                currentBubbleText = [];
+            }
+            timeline.push({
+                sender: 'agent-action',
+                agent: agentName,
+                text: trimmed.slice(1, -1).trim()
+            });
+        } else {
+            currentBubbleText.push(line);
+        }
+    }
+    
+    const textContent = currentBubbleText.join('\n').trim();
+    if (textContent || thoughtText) {
+        timeline.push({
+            sender: 'agent',
+            agent: agentName,
+            thought: thoughtText,
+            text: textContent
+        });
+    }
+}
+
+// Render dynamic parsed bubbles inside the timeline DOM
+function renderChatTimeline(timeline, agentName) {
+    chatTimeline.innerHTML = '';
+    
+    timeline.forEach(msg => {
+        if (msg.sender === 'system' || msg.sender === 'agent-action') {
+            const el = document.createElement('div');
+            if (msg.sender === 'agent-action') {
+                el.className = `chat-action-log agent-action ${msg.agent}`;
+                const iconClass = msg.agent === 'antigravity' ? 'fa-solid fa-rocket' : 'fa-solid fa-code';
+                const formattedAgentName = msg.agent === 'antigravity' ? 'Antigravity' : 'Codex';
+                el.innerHTML = `<i class="${iconClass}"></i> <span><strong>${formattedAgentName}</strong>: ${msg.text}</span>`;
+            } else {
+                el.className = 'chat-action-log';
+                el.innerHTML = `<i class="fa-solid fa-gears"></i> <span>${msg.text}</span>`;
+            }
+            chatTimeline.appendChild(el);
+        } else if (msg.sender === 'user') {
+            const el = document.createElement('div');
+            el.className = 'chat-message user';
+            el.innerHTML = `
+                <div class="chat-avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="chat-bubble">
+                    ${DOMPurify.sanitize(marked.parse(msg.text))}
+                </div>
+            `;
+            chatTimeline.appendChild(el);
+        } else if (msg.sender === 'agent') {
+            const el = document.createElement('div');
+            el.className = 'chat-message agent';
+            el.setAttribute('data-agent', msg.agent);
+            
+            let thoughtHTML = '';
+            if (msg.thought) {
+                thoughtHTML = `
+                    <div class="think-block">
+                        <div class="think-header" onclick="toggleThought(this)">
+                            <span><i class="fa-solid fa-brain"></i> Thought Process</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="think-content">
+                            ${DOMPurify.sanitize(marked.parse(msg.thought))}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            const iconClass = msg.agent === 'antigravity' ? 'fa-solid fa-rocket' : 'fa-solid fa-code';
+            el.innerHTML = `
+                <div class="chat-avatar"><i class="${iconClass}"></i></div>
+                <div class="chat-bubble">
+                    ${thoughtHTML}
+                    <div class="message-content">
+                        ${DOMPurify.sanitize(marked.parse(msg.text || '*Silence*'))}
+                    </div>
+                </div>
+            `;
+            chatTimeline.appendChild(el);
+        }
+    });
+}
+
+// Accordion toggle function for Gemini/o1 Deep Think sections
+window.toggleThought = function(headerElement) {
+    const block = headerElement.parentElement;
+    block.classList.toggle('expanded');
 };
 
 // Close Modal
@@ -161,7 +375,6 @@ function closeModal() {
 
 // Tab Switching Logic
 function switchTab(tabId) {
-    // Update Tabs
     navTabs.forEach(tab => {
         if (tab.dataset.tab === tabId) {
             tab.classList.add('active');
@@ -170,7 +383,6 @@ function switchTab(tabId) {
         }
     });
 
-    // Update Panes
     tabPanes.forEach(pane => {
         if (pane.id === tabId) {
             pane.classList.add('active');
@@ -182,7 +394,6 @@ function switchTab(tabId) {
 
 // Event Listeners Setup
 function setupEventListeners() {
-    // Close Modal Events
     closeModalBtn.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) closeModal();
@@ -193,7 +404,6 @@ function setupEventListeners() {
         }
     });
 
-    // Tab Click Events
     navTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             switchTab(tab.dataset.tab);
