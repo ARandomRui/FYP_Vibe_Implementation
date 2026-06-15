@@ -30,7 +30,7 @@ const projectsData = [
         description: 'A website for interacting with and viewing PDFs.',
         link: 'https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/AntiGravity/PDFWebsite',
         implementationPlan: '../AntiGravity/PDFWebsite/implementation_plan/plan.md',
-        testCase: '../AntiGravity/PDFWebsite/test.cases.md',
+        testCase: '../AntiGravity/PDFWebsite/tests/test_cases.md',
         summary: '../AntiGravity/PDFWebsite/README.md',
         chat: '../AntiGravity/PDFWebsite/Chat/chat.md'
     },
@@ -52,7 +52,7 @@ const projectsData = [
         description: 'A lightweight, clean-interface web-based to-do list application.',
         link: '../AntiGravity/TodoListApplication/To-do_List_Application/index.html',
         implementationPlan: '../AntiGravity/TodoListApplication/implementation_plan/plan.md',
-        testCase: '../AntiGravity/TodoListApplication/To-do_List_Application/test.md',
+        testCase: '../AntiGravity/TodoListApplication/tests/test.md',
         summary: '../AntiGravity/TodoListApplication/To-do_List_Application/summary.md',
         chat: '../AntiGravity/TodoListApplication/chat/chat.md'
     },
@@ -86,7 +86,7 @@ const projectsData = [
         description: 'A website for interacting with and viewing PDFs.',
         link: 'https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/Codex/PDFWebsite',
         implementationPlan: '../Codex/PDFWebsite/plan.md',
-        testCase: '',
+        testCase: '../Codex/PDFWebsite/tests/test_cases.md',
         summary: '../Codex/PDFWebsite/README.md',
         chat: '../Codex/PDFWebsite/Chat/chat.md'
     },
@@ -97,7 +97,7 @@ const projectsData = [
         description: 'A tool to convert text into spoken audio.',
         link: 'https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/Codex/TTS_Application',
         implementationPlan: '../Codex/TTS_Application/plan/implementation-plan.md',
-        testCase: '',
+        testCase: '../Codex/TTS_Application/tests/test_cases.md',
         summary: '',
         chat: '../Codex/TTS_Application/chat/chat.md'
     },
