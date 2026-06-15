@@ -1,51 +1,23 @@
-# Chrome Dinosaur Game Clone
+# Chrome Dinosaur Game (Codex)
 
-A Python `pygame` clone of the Google Chrome dinosaur game with mechanics tuned against Chromium's original Dino implementation.
+Welcome to the Codex implementation of the Chrome Dinosaur Game! 
 
-## Features
+This is a Python-based clone using Pygame.
 
-- Faithful `600 x 150` logical playfield at `60 FPS`
-- Chrome-like jump, duck, fast-drop, crash, and restart flow
-- Chromium-based obstacle pacing and spawn rules
-- Multi-box collision handling for the T-Rex and obstacles
-- Score progression, high score tracking, and milestone flashes
-- Night mode inversion cycle
-- Minimal presentation, no extra menus
-- Recreated sound effects for jump, score milestones, and crashes
+## How to Run Locally
 
-## Requirements
-
-- Python `3.12+`
-- `pygame 2.6+`
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run
-
-```bash
-python game.py
-```
-
-## Controls
-
-- `Up Arrow` or `Space`: jump
-- `Down Arrow`: duck on ground, fast-drop while airborne
-- `Enter`: restart after crash
-
-## Files
-
-- [game.py](</c:/Users/Home/Desktop/Vibe Coding FYP/FYP_Vibe_Implementation/Codex/Chrome Dinosaur Game/game.py>) - main loop and gameplay logic
-- [settings.py](</c:/Users/Home/Desktop/Vibe Coding FYP/FYP_Vibe_Implementation/Codex/Chrome Dinosaur Game/settings.py>) - Chromium-derived constants and obstacle definitions
-- [sprites.py](</c:/Users/Home/Desktop/Vibe Coding FYP/FYP_Vibe_Implementation/Codex/Chrome Dinosaur Game/sprites.py>) - procedural sprite recreation
-- [audio.py](</c:/Users/Home/Desktop/Vibe Coding FYP/FYP_Vibe_Implementation/Codex/Chrome Dinosaur Game/audio.py>) - generated sound effects
-- [plan.md](</c:/Users/Home/Desktop/Vibe Coding FYP/FYP_Vibe_Implementation/Codex/Chrome Dinosaur Game/plan.md>) - researched implementation plan and requirement decisions
-
-## Notes
-
-- The gameplay constants and spawn rules were based on Chromium's Dino sources.
-- Visuals and sounds are recreated in `pygame` rather than copied directly from Chrome assets.
-- High score is saved locally in `highscore.json` after a run beats the previous best.
+1. **Prerequisites**: Ensure you have Python installed on your system.
+2. **Navigate to the Source Code**:
+   ```bash
+   cd "Chrome Dinosaur Game"
+   ```
+3. **Install Requirements**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   *(If it fails or if the file is missing some dependencies, you can manually run `pip install pygame`)*
+4. **Run the Game**:
+   ```bash
+   python game.py
+   ```
+   *(Use `python3` instead of `python` if you are on macOS/Linux)*
