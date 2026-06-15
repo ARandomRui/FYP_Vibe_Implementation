@@ -35,7 +35,7 @@ Visual Aesthetics: Are there any specific color palettes or charting libraries (
 
 1. Sure Next.js works
 2. No, as long as its free
-3, I don't mind as long as its free and correct
+3. I don't mind as long as its free and correct
 4. Sure I don't mind 
 
 *Viewed [SKILL.md](file:///C:/Users/Home/.gemini/config/plugins/Google.securecoder.securecoder/skills/scan_dependencies/SKILL.md) *
