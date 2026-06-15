@@ -6,5 +6,5 @@ This is a native Android application.
 
 ## How to Run Locally
 
-1. **Prerequisites**: Ensure you have [installed the app](https://drive.google.com/file/d/1OfTBAKAIkXEiZGcSSzNshbIsnoNP-Ebv/view?usp=sharing)
-2. **Run the App**
+1. **Prerequisites**: Ensure you have [installed the app](https://drive.google.com/file/d/1OfTBAKAIkXEiZGcSSzNshbIsnoNP-Ebv/view?usp=sharing).
+2. **Run the App**.
