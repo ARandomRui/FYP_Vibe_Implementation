@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutVoice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical">
+
+        <Spinner
+            android:id="@+id/spinnerVoices"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvAutoDetect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Auto-detected)"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:textColor="#FF9800"
+            android:visibility="gone"
+            android:layout_marginStart="8dp"/>
+            
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnLoadUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load URL"
+            android:layout_marginEnd="8dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="12dp"/>
+
+        <Button
+            android:id="@+id/btnLoadPdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load PDF"
+            android:layout_marginEnd="8dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="12dp"/>
+            
+        <!-- Landscape Pagination -->
+        <LinearLayout
+            android:id="@+id/layoutPaginationHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp">
+
+            <Button
+                android:id="@+id/btnPrevPageLand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:text="&lt;"
+                android:minWidth="48dp"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPageIndicatorLand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="4dp"/>
+
+            <Button
+                android:id="@+id/btnNextPageLand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&gt;" 
+                android:minWidth="48dp"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
+        
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:backgroundTint="@android:color/holo_orange_light"
+            android:minWidth="0dp"
+            android:paddingHorizontal="16dp"/>
+
+    </LinearLayout>
+
+    <!-- Portrait Pagination (Hidden by default) -->
+    <LinearLayout
+        android:id="@+id/layoutPagination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/btnPrevPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="&lt; Prev"
+            android:minWidth="0dp"
+            android:paddingHorizontal="12dp"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/tvPageIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Page 1/1"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnNextPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next &gt;" 
+            android:minWidth="0dp"
+            android:paddingHorizontal="12dp"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etInput"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Enter text to speak"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:gravity="top|start"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnSpeak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:layout_marginEnd="16dp"/>
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@android:color/holo_red_light"/>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next" />
+
+    </LinearLayout>
+
+</LinearLayout>

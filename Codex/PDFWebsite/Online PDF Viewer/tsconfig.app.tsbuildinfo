@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/authpanel.tsx","./src/components/confignotice.tsx","./src/components/documentlibrary.tsx","./src/components/pdfviewer.tsx","./src/components/richtexteditor.tsx","./src/lib/supabase.ts"],"version":"5.9.3"}

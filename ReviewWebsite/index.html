@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=1.1">
 </head>
 <body>
     <div class="app-container">
@@ -52,23 +52,30 @@
             </section>
         </main>
 
-        <!-- Detail Modal View -->
-        <div class="detail-overlay hidden" id="detail-overlay">
-            <div class="detail-modal glass-effect">
-                <button class="close-btn" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
-                
-                <header class="detail-header">
-                    <span class="agent-badge" id="detail-agent-badge">Agent</span>
-                    <h2 id="detail-title">Project Title</h2>
-                    <p id="detail-desc" class="detail-desc">Project Description</p>
-                </header>
+        <!-- Detail Project View (SPA) -->
+        <div class="project-view-container hidden" id="project-view-container">
+            <header class="project-view-header">
+                <button class="back-btn" id="back-to-dashboard"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+                <div class="project-view-title-area">
+                    <div class="title-and-badge">
+                        <h2 id="detail-title">Project Title</h2>
+                        <span class="agent-badge" id="detail-agent-badge">Agent</span>
+                        
+                        <div class="desc-tooltip-wrapper">
+                            <i class="fa-solid fa-circle-info info-icon"></i>
+                            <div class="desc-tooltip">
+                                <p id="detail-desc" class="detail-desc">Project Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
                 <div class="detail-content">
                     <nav class="detail-nav">
                         <button class="nav-tab active" data-tab="link-tab"><i class="fa-solid fa-link"></i> Application</button>
                         <button class="nav-tab" data-tab="plan-tab"><i class="fa-solid fa-list-check"></i> Plan</button>
                         <button class="nav-tab" data-tab="test-tab"><i class="fa-solid fa-vial"></i> Test Case</button>
-                        <button class="nav-tab" data-tab="summary-tab"><i class="fa-solid fa-chart-pie"></i> Summary</button>
                         <button class="nav-tab" data-tab="chat-tab"><i class="fa-solid fa-comments"></i> Chat</button>
                     </nav>
 
@@ -92,10 +99,6 @@
                         <div class="tab-pane" id="test-tab">
                             <div class="markdown-body" id="test-content"></div>
                         </div>
-                        
-                        <div class="tab-pane" id="summary-tab">
-                            <div class="markdown-body" id="summary-content"></div>
-                        </div>
 
                         <!-- Chat Tab -->
                         <div class="tab-pane" id="chat-tab">
@@ -112,8 +115,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
         <footer>
             <p>&copy; 2026 Vibe Coding FYP</p>
         </footer>

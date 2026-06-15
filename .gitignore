@@ -55,3 +55,16 @@ google-services.json
 
 # Android Profiling
 *.hprof
+# Global ignore for node_modules and build outputs
+node_modules/
+.next/
+__pycache__/
+
+# Android build folders
+build/
+.gradle/
+app/build/
+.idea/
+*.apk
+
+tools/saved/

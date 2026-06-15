@@ -1,0 +1,1 @@
+{"registry": "npm", "packages": [{"package": "next"}, {"package": "react"}, {"package": "react-dom"}, {"package": "recharts"}, {"package": "lucide-react"}, {"package": "vader-sentiment"}, {"package": "yahoo-finance2"}]}

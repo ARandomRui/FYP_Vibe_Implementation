@@ -1,64 +1,124 @@
 // Mock Data for Projects
 const projectsData = [
+    // AntiGravity Projects
+    {
+        id: 'anti-chrome-dino',
+        agent: 'antigravity',
+        title: 'Chrome Dinosaur Game',
+        description: 'A clone of the classic Chrome Dinosaur Game.',
+        link: '../AntiGravity/ChromeDinosaurGame/index.html',
+        implementationPlan: '../AntiGravity/ChromeDinosaurGame/implementation_plan/plan.md',
+        testCase: '../AntiGravity/ChromeDinosaurGame/tests/test_cases.md',
+        summary: '',
+        chat: '../AntiGravity/ChromeDinosaurGame/Chat/chat.md'
+    },
+    {
+        id: 'anti-news-sentiment',
+        agent: 'antigravity',
+        title: 'News Sentiment With Stock',
+        description: 'Stock sentiment analysis dashboard based on news.',
+        link: '../AntiGravity/NewsSentimentWithStock/index.html',
+        implementationPlan: '../AntiGravity/NewsSentimentWithStock/implementation_plan/plan.md',
+        testCase: '../AntiGravity/NewsSentimentWithStock/stock-sentiment/tests/test_cases.md',
+        summary: '../AntiGravity/NewsSentimentWithStock/Stock Sentiment Analysis Dashboard.md',
+        chat: '../AntiGravity/NewsSentimentWithStock/chat/chat.md'
+    },
+    {
+        id: 'anti-pdf-website',
+        agent: 'antigravity',
+        title: 'PDF Website',
+        description: 'A website for interacting with and viewing PDFs.',
+        link: '../AntiGravity/PDFWebsite/pdfwebsite/index.html',
+        implementationPlan: '../AntiGravity/PDFWebsite/implementation_plan/plan.md',
+        testCase: '../AntiGravity/PDFWebsite/test.cases.md',
+        summary: '../AntiGravity/PDFWebsite/README.md',
+        chat: '../AntiGravity/PDFWebsite/Chat/chat.md'
+    },
+    {
+        id: 'anti-tts-app',
+        agent: 'antigravity',
+        title: 'Text-to-Speech Application',
+        description: 'A tool to convert text into spoken audio.',
+        link: '../AntiGravity/TTS_Application/index.html',
+        implementationPlan: '../AntiGravity/TTS_Application/implementation_plan/plan.md',
+        testCase: '../AntiGravity/TTS_Application/Tests/test_case.md',
+        summary: '',
+        chat: '../AntiGravity/TTS_Application/Chat/chat.md'
+    },
     {
         id: 'anti-todo',
         agent: 'antigravity',
         title: 'To-Do List Application',
-        description: 'A lightweight, clean-interface web-based to-do list application with LocalStorage persistence.',
-        link: 'https://arandomrui.github.io/FYP_Vibe_Implementation/AntiGravity/To-do_List_Application/index.html',
-        implementationPlan: '../AntiGravity/To-do_List_Application/implementation_plan/20260513_223439_plan.md',
-        testCase: '../AntiGravity/To-do_List_Application/test.md',
-        summary: '../AntiGravity/To-do_List_Application/developer_notes.md',
-        chat: '../AntiGravity/To-do_List_Application/chat/VC_chat.md'
+        description: 'A lightweight, clean-interface web-based to-do list application.',
+        link: '../AntiGravity/TodoListApplication/To-do_List_Application/index.html',
+        implementationPlan: '../AntiGravity/TodoListApplication/implementation_plan/plan.md',
+        testCase: '../AntiGravity/TodoListApplication/To-do_List_Application/test.md',
+        summary: '../AntiGravity/TodoListApplication/To-do_List_Application/summary.md',
+        chat: '../AntiGravity/TodoListApplication/chat/chat.md'
+    },
+    // Codex Projects
+    {
+        id: 'codex-chrome-dino',
+        agent: 'codex',
+        title: 'Chrome Dinosaur Game',
+        description: 'A clone of the classic Chrome Dinosaur Game.',
+        link: '../Codex/ChromeDinosaurGame/index.html',
+        implementationPlan: '../Codex/ChromeDinosaurGame/plan.md',
+        testCase: '../Codex/ChromeDinosaurGame/tests/TEST_CASES.md',
+        summary: '../Codex/ChromeDinosaurGame/README.md',
+        chat: '../Codex/ChromeDinosaurGame/Chat/chat.md'
     },
     {
-        id: 'codex-spaceship',
+        id: 'codex-news-sentiment',
         agent: 'codex',
-        title: 'Spaceship Titanic Predictor',
-        description: 'Machine learning pipeline to predict the "Transported" target variable in the Spaceship Titanic dataset.',
-        link: 'https://github.com/example/codex-spaceship', // Placeholder link
-        implementationPlan: `
-# Implementation Plan
-
-## Objective
-Initiate a machine learning project to predict the "Transported" target variable.
-
-## Tech Stack
-- Python
-- Pandas, Scikit-Learn
-- Jupyter Notebooks
-
-## Pipeline
-1. **Data Loading**: Ingest \`train.csv\` and \`test.csv\`.
-2. **Preprocessing**: Handle missing values, encode categorical variables.
-3. **Feature Engineering**: Create new features based on existing ones.
-4. **Modeling**: Train a Random Forest Classifier.
-5. **Evaluation**: Validate using cross-validation.
-        `,
-        testCase: `
-# Test Cases
-
-## TC01: Data Ingestion
-- **Action**: Run data loading script.
-- **Expected**: DataFrames are created without errors.
-
-## TC02: Missing Value Imputation
-- **Action**: Check for nulls post-preprocessing.
-- **Expected**: Zero null values in the DataFrame.
-
-## TC03: Model Training
-- **Action**: Execute \`model.fit()\`.
-- **Expected**: Model trains successfully and returns a training score > 0.75.
-        `,
-        summary: '../Codex/Spaceship_Titanic_Predictor/developer_notes.md'
+        title: 'News Sentiment With Stock',
+        description: 'Stock sentiment analysis dashboard based on news.',
+        link: '../Codex/NewsSentimentWithStock/index.html',
+        implementationPlan: '../Codex/NewsSentimentWithStock/plan.md',
+        testCase: '../Codex/NewsSentimentWithStock/test-cases.md',
+        summary: '../Codex/NewsSentimentWithStock/documentation.md',
+        chat: '../Codex/NewsSentimentWithStock/Chat/chat.md'
+    },
+    {
+        id: 'codex-pdf-website',
+        agent: 'codex',
+        title: 'PDF Website',
+        description: 'A website for interacting with and viewing PDFs.',
+        link: '../Codex/PDFWebsite/Online PDF Viewer/index.html',
+        implementationPlan: '../Codex/PDFWebsite/plan.md',
+        testCase: '',
+        summary: '../Codex/PDFWebsite/README.md',
+        chat: '../Codex/PDFWebsite/Chat/chat.md'
+    },
+    {
+        id: 'codex-tts-app',
+        agent: 'codex',
+        title: 'Text-to-Speech Application',
+        description: 'A tool to convert text into spoken audio.',
+        link: '../Codex/TTS_Application/index.html',
+        implementationPlan: '../Codex/TTS_Application/plan/implementation-plan.md',
+        testCase: '',
+        summary: '',
+        chat: '../Codex/TTS_Application/chat/chat.md'
+    },
+    {
+        id: 'codex-todo',
+        agent: 'codex',
+        title: 'To-Do List Application',
+        description: 'A lightweight, clean-interface web-based to-do list application.',
+        link: '../Codex/TodoListApplication/To-do list Web Application/index.html',
+        implementationPlan: '../Codex/TodoListApplication/docs/requirements.md',
+        testCase: '../Codex/TodoListApplication/tests/TEST_CASES.md',
+        summary: '../Codex/TodoListApplication/docs/README.md',
+        chat: '../Codex/TodoListApplication/Chat/chat.md'
     }
 ];
 
 // DOM Elements
 const antigravityGrid = document.getElementById('antigravity-grid');
 const codexGrid = document.getElementById('codex-grid');
-const modalOverlay = document.getElementById('detail-overlay');
-const closeModalBtn = document.getElementById('close-modal');
+const projectViewContainer = document.getElementById('project-view-container');
+const backBtn = document.getElementById('back-to-dashboard');
 const navTabs = document.querySelectorAll('.nav-tab');
 const tabPanes = document.querySelectorAll('.tab-pane');
 
@@ -69,7 +129,6 @@ const detailDesc = document.getElementById('detail-desc');
 const detailLink = document.getElementById('detail-link');
 const planContent = document.getElementById('plan-content');
 const testContent = document.getElementById('test-content');
-const summaryContent = document.getElementById('summary-content');
 const chatTimeline = document.getElementById('chat-timeline');
 
 // Initialize Application
@@ -115,11 +174,16 @@ window.openProjectDetails = function(projectId) {
 
     // Async function to load markdown either from URL or direct string
     async function loadMarkdownContent(content, element) {
+        if (!content || content.trim() === '') {
+            element.innerHTML = '<p class="empty-state-text">Summary notes are empty.</p>';
+            return;
+        }
+
         element.innerHTML = '<p>Loading...</p>';
         try {
             let text = content;
             if (content.trim().endsWith('.md')) {
-                const response = await fetch(content);
+                const response = await fetch(content + '?t=' + new Date().getTime());
                 if (response.status === 404) {
                     element.innerHTML = '<p class="empty-state-text">Summary notes are empty.</p>';
                     return;
@@ -130,18 +194,21 @@ window.openProjectDetails = function(projectId) {
             element.innerHTML = DOMPurify.sanitize(marked.parse(text));
         } catch (e) {
             console.error("Error loading markdown:", e);
-            element.innerHTML = "<p>Error loading content.</p>";
+            if (e.message === 'Failed to fetch' && window.location.protocol === 'file:') {
+                element.innerHTML = '<p class="error-text">Error: Browser security prevents loading local files via the file:// protocol. Please run a local web server (e.g. using VS Code Live Server).</p>';
+            } else {
+                element.innerHTML = `<p class="error-text">Error loading content: ${e.message}</p>`;
+            }
         }
     }
 
     // Load standard markdown contents
     loadMarkdownContent(project.implementationPlan, planContent);
     loadMarkdownContent(project.testCase, testContent);
-    loadMarkdownContent(project.summary, summaryContent);
 
     // Show/Hide Chat Tab depending on if it has a conversation transcript
     const chatTabBtn = document.querySelector('[data-tab="chat-tab"]');
-    if (project.chat) {
+    if (project.chat && project.chat.trim() !== '') {
         chatTabBtn.style.display = 'block';
         loadChatContent(project.chat, project.agent);
     } else {
@@ -151,16 +218,18 @@ window.openProjectDetails = function(projectId) {
     // Reset Tabs to first one (Application link)
     switchTab('link-tab');
 
-    // Show Modal
-    modalOverlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    // Show Project View
+    document.querySelector('.app-header').classList.add('hidden');
+    document.getElementById('dashboard').classList.add('hidden');
+    projectViewContainer.classList.remove('hidden');
+    window.scrollTo(0, 0);
 };
 
 // Async function to load and parse Chat Markdown content
 async function loadChatContent(chatPath, agentName) {
     chatTimeline.innerHTML = '<p>Loading conversation...</p>';
     try {
-        const response = await fetch(chatPath);
+        const response = await fetch(chatPath + '?t=' + new Date().getTime());
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const text = await response.text();
         const timeline = parseChatMarkdown(text, agentName);
@@ -174,7 +243,7 @@ async function loadChatContent(chatPath, agentName) {
 // Custom Markdown Chat Parser for VC_chat.md format
 function parseChatMarkdown(text, agentName) {
     const timeline = [];
-    const headerRegex = /###\s+(User Input|Planner Response)/g;
+    const headerRegex = /#{2,3}\s+(?:\[#\d+\]\s+)?(User Input|Planner Response|User|Assistant)/g;
     let match;
     const segments = [];
     
@@ -196,9 +265,9 @@ function parseChatMarkdown(text, agentName) {
         
         let content = text.slice(start, end).trim();
         
-        if (current.type === 'User Input') {
+        if (current.type === 'User Input' || current.type === 'User') {
             parseUserContent(content, agentName, timeline);
-        } else if (current.type === 'Planner Response') {
+        } else if (current.type === 'Planner Response' || current.type === 'Assistant') {
             parsePlannerContent(content, agentName, timeline);
         }
     }
@@ -249,7 +318,11 @@ function parsePlannerContent(content, agentName, timeline) {
     let responseText = content;
     
     if (thoughtHeaderIdx !== -1) {
-        const dividerIdx = content.indexOf('---', thoughtHeaderIdx);
+        let dividerIdx = content.indexOf('---', thoughtHeaderIdx);
+        if (dividerIdx === -1) {
+            dividerIdx = content.indexOf('***', thoughtHeaderIdx);
+        }
+        
         const thoughtStart = thoughtHeaderIdx + '### Thought Process'.length;
         
         if (dividerIdx !== -1) {
@@ -367,10 +440,11 @@ window.toggleThought = function(headerElement) {
     block.classList.toggle('expanded');
 };
 
-// Close Modal
-function closeModal() {
-    modalOverlay.classList.add('hidden');
-    document.body.style.overflow = '';
+// Close Project View
+function closeProjectDetails() {
+    projectViewContainer.classList.add('hidden');
+    document.querySelector('.app-header').classList.remove('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
 }
 
 // Tab Switching Logic
@@ -394,13 +468,10 @@ function switchTab(tabId) {
 
 // Event Listeners Setup
 function setupEventListeners() {
-    closeModalBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) closeModal();
-    });
+    backBtn.addEventListener('click', closeProjectDetails);
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) {
-            closeModal();
+        if (e.key === 'Escape' && !projectViewContainer.classList.contains('hidden')) {
+            closeProjectDetails();
         }
     });
 

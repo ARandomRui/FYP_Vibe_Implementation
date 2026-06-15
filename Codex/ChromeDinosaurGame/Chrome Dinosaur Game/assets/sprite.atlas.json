@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "image": "sprite.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 2404,
+      "h": 130
+    },
+    "scale": "2"
+  },
+  "frames": {
+    "restart_button": {
+      "frame": {"x": 2, "y": 2, "w": 72, "h": 64},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 36, "h": 32},
+      "sourceSize": {"w": 36, "h": 32}
+    },
+    "cloud": {
+      "frame": {"x": 172, "y": 4, "w": 92, "h": 28},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 46, "h": 14},
+      "sourceSize": {"w": 46, "h": 14}
+    },
+    "pterodactyl_wings_up": {
+      "frame": {"x": 268, "y": 4, "w": 92, "h": 80},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 46, "h": 40},
+      "sourceSize": {"w": 46, "h": 40}
+    },
+    "pterodactyl_wings_down": {
+      "frame": {"x": 360, "y": 4, "w": 92, "h": 80},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 46, "h": 40},
+      "sourceSize": {"w": 46, "h": 40}
+    },
+    "cactus_small_1": {
+      "frame": {"x": 456, "y": 4, "w": 34, "h": 70},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 17, "h": 35},
+      "sourceSize": {"w": 17, "h": 35}
+    },
+    "cactus_small_2": {
+      "frame": {"x": 490, "y": 4, "w": 68, "h": 70},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 34, "h": 35},
+      "sourceSize": {"w": 34, "h": 35}
+    },
+    "cactus_small_3": {
+      "frame": {"x": 558, "y": 4, "w": 102, "h": 70},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 51, "h": 35},
+      "sourceSize": {"w": 51, "h": 35}
+    },
+    "cactus_large_1": {
+      "frame": {"x": 664, "y": 4, "w": 50, "h": 100},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 25, "h": 50},
+      "sourceSize": {"w": 25, "h": 50}
+    },
+    "cactus_large_2": {
+      "frame": {"x": 714, "y": 4, "w": 100, "h": 100},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 50, "h": 50},
+      "sourceSize": {"w": 50, "h": 50}
+    },
+    "cactus_large_3": {
+      "frame": {"x": 814, "y": 4, "w": 150, "h": 100},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 75, "h": 50},
+      "sourceSize": {"w": 75, "h": 50}
+    },
+    "score_row": {
+      "frame": {"x": 954, "y": 2, "w": 238, "h": 21},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 119, "h": 11},
+      "sourceSize": {"w": 119, "h": 11}
+    },
+    "game_over_text": {
+      "frame": {"x": 954, "y": 29, "w": 380, "h": 21},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 191, "h": 11},
+      "sourceSize": {"w": 191, "h": 11}
+    },
+    "dino_idle": {
+      "frame": {"x": 1338, "y": 2, "w": 88, "h": 94},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 44, "h": 47},
+      "sourceSize": {"w": 44, "h": 47}
+    },
+    "dino_blink": {
+      "frame": {"x": 1426, "y": 2, "w": 88, "h": 94},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 44, "h": 47},
+      "sourceSize": {"w": 44, "h": 47}
+    },
+    "dino_run_1": {
+      "frame": {"x": 1514, "y": 2, "w": 88, "h": 94},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 44, "h": 47},
+      "sourceSize": {"w": 44, "h": 47}
+    },
+    "dino_run_2": {
+      "frame": {"x": 1602, "y": 2, "w": 88, "h": 94},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 44, "h": 47},
+      "sourceSize": {"w": 44, "h": 47}
+    },
+    "dino_dead": {
+      "frame": {"x": 1690, "y": 2, "w": 88, "h": 94},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 44, "h": 47},
+      "sourceSize": {"w": 44, "h": 47}
+    },
+    "dino_night": {
+      "frame": {"x": 1782, "y": 6, "w": 80, "h": 86},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 40, "h": 43},
+      "sourceSize": {"w": 40, "h": 43}
+    },
+    "dino_duck_1": {
+      "frame": {"x": 1866, "y": 36, "w": 118, "h": 64},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 59, "h": 32},
+      "sourceSize": {"w": 59, "h": 32}
+    },
+    "dino_duck_2": {
+      "frame": {"x": 1984, "y": 36, "w": 118, "h": 64},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 59, "h": 32},
+      "sourceSize": {"w": 59, "h": 32}
+    },
+    "ground_strip": {
+      "frame": {"x": 2, "y": 104, "w": 2400, "h": 24},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 1200, "h": 12},
+      "sourceSize": {"w": 1200, "h": 12}
+    }
+  }
+}

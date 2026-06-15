@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-in: animate-in 0.5s ease-out;
+}
+
+body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+}

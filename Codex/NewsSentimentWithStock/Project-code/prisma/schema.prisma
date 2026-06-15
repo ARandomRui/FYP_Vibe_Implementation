@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Stock {
+  id             String          @id @default(cuid())
+  ticker         String          @unique
+  companyName    String?
+  exchange       String?
+  currency       String?
+  logoUrl        String?
+  lastSearchedAt DateTime?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  pricePoints    PricePoint[]
+  newsArticles   NewsArticle[]
+  snapshots      StockSnapshot[]
+}
+
+model PricePoint {
+  id        String   @id @default(cuid())
+  stockId   String
+  date      DateTime
+  open      Float
+  high      Float
+  low       Float
+  close     Float
+  volume    Float
+  source    String
+  fetchedAt DateTime @default(now())
+  stock     Stock    @relation(fields: [stockId], references: [id], onDelete: Cascade)
+
+  @@unique([stockId, date])
+  @@index([stockId, date])
+}
+
+model NewsArticle {
+  id                String             @id @default(cuid())
+  stockId           String
+  providerArticleId String             @unique
+  title             String
+  source            String?
+  url               String
+  publishedAt       DateTime
+  summary           String?
+  imageUrl          String?
+  rawPayload        String
+  fetchedAt         DateTime           @default(now())
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  stock             Stock              @relation(fields: [stockId], references: [id], onDelete: Cascade)
+  sentiment         ArticleSentiment?
+
+  @@index([stockId, publishedAt])
+}
+
+model ArticleSentiment {
+  id              String      @id @default(cuid())
+  articleId       String      @unique
+  modelName       String
+  modelVersion    String
+  rawScore        Float
+  normalizedScore Float
+  label           String
+  analyzedText    String
+  createdAt       DateTime    @default(now())
+  article         NewsArticle @relation(fields: [articleId], references: [id], onDelete: Cascade)
+}
+
+model StockSnapshot {
+  id                    String   @id @default(cuid())
+  stockId               String
+  windowDays            Int
+  overallSentimentScore Float
+  positiveCount         Int
+  neutralCount          Int
+  negativeCount         Int
+  latestClose           Float?
+  priceChange30d        Float?
+  timelinePayload       String
+  refreshedAt           DateTime @default(now())
+  stock                 Stock    @relation(fields: [stockId], references: [id], onDelete: Cascade)
+
+  @@unique([stockId, windowDays])
+}
