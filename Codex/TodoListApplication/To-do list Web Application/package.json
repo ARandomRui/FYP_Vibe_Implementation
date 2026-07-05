@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "to-do-list-web-application",
   "version": "1.0.0",
   "description": "- Simple, minimal web app for managing a personal task list. - Allow adding tasks, checking them off, and deleting them. - Persist tasks in the browser using localStorage.",
@@ -8,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "dev": "npx serve .",
     "test": "npm run test:unit && npm run test:browser",
     "test:unit": "node --test tests/todo-core.test.js",
     "test:browser": "playwright test"
