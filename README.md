@@ -12,7 +12,7 @@ Projects done for FYP
 - **TTS Application**: https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/AntiGravity/TTS_Application
 
 ### Codex Projects
-- **To-Do List Application**: https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/Codex/TodoListApplication/index.html
+- **To-Do List Application**: https://arandomrui.github.io/FYP_Vibe_Implementation/Codex/TodoListApplication/index.html
 - **Chrome Dinosaur Game**: https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/Codex/ChromeDinosaurGame
 - **News Sentiment With Stock**: https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/Codex/NewsSentimentWithStock
 - **PDF Website**: https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/Codex/PDFWebsite
