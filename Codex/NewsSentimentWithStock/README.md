@@ -18,6 +18,10 @@ This is a modern web application built using Next.js.
    ```bash
    npm install
    ```
+5. **One Time Setup**:
+   ```bash
+   npm run prisma:generate
+   ```
 5. **Start the Development Server**:
    ```bash
    npm run dev
