@@ -13,12 +13,5 @@ While you can access the live version of this app online, you can also run it lo
    ```bash
    cd "To-do list Web Application"
    ```
-3. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
-4. **Start the Development Server**:
-   ```bash
-   npm run dev
-   ```
-5. **View the App**: Open your browser and navigate to the localhost URL provided in the terminal (usually `http://localhost:5173` or `http://localhost:3000`).
+3. **Run the APP** by clicking on index.html.
+
