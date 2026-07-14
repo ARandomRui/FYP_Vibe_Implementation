@@ -2,8 +2,6 @@
 
 **Overall Review Website**: https://arandomrui.github.io/FYP_Vibe_Implementation/ReviewWebsite/index.html
 
-Projects done for FYP
-
 ### AntiGravity Projects
 - **To-Do List Application**: https://arandomrui.github.io/FYP_Vibe_Implementation/AntiGravity/TodoListApplication/index.html
 - **Chrome Dinosaur Game**: https://github.com/ARandomRui/FYP_Vibe_Implementation/tree/main/AntiGravity/ChromeDinosaurGame
